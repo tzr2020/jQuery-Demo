@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider {
+            width: 720px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slider .slides {
+            width: 3600px;
+            height: 400px;
+        }
+
+        .slider .slide {
+            float: left;
+            list-style-type: none;
+            width: 720px;
+            height: 400px;
+        }
+
+        .slider .slide img {
+            width: 720px;
+        }
+    </style>
+    <title>demo-2-slide</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-muted">jQuery Basic Slide</h1>
+        </div>
+
+        <!-- 轮播图 -->
+        <div class="slider">
+            <ul class="slides">
+                <li class="slide"><img src="" alt="slide-img-1"></li>
+                <li class="slide"><img src="" alt="slide-img-2"></li>
+                <li class="slide"><img src="" alt="slide-img-3"></li>
+                <li class="slide"><img src="" alt="slide-img-4"></li>
+                <li class="slide"><img src="" alt="slide-img-5"></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            setInterval(function () {
+                console.log(new Date);
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
