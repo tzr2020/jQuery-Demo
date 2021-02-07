@@ -20,7 +20,7 @@
 
         <div class="row">
             <div class="col-xs-3">
-                <div id="panel1" class="panel panel-primary">
+                <div id="panel1" class="panel panel-primary" style="display: none;">
                     <div class="panel-heading">#panel1</div>
                     <div class="panel-body">
                         content
@@ -29,7 +29,7 @@
             </div>
 
             <div class="col-xs-3">
-                <div id="panel2" class="panel panel-primary">
+                <div id="panel2" class="panel panel-primary" style="display: none;">
                     <div class="panel-heading">#panel2</div>
                     <div class="panel-body">
                         content
@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-xs-3">
-                <div id="panel3" class="panel panel-primary">
+                <div id="panel3" class="panel panel-primary" style="display: none;">
                     <div class="panel-heading">#panel3</div>
                     <div class="panel-body">
                         content
@@ -47,7 +47,7 @@
             </div>
 
             <div class="col-xs-3">
-                <div id="panel4" class="panel panel-primary">
+                <div id="panel4" class="panel panel-primary" style="display: none;">
                     <div class="panel-heading">#panel4</div>
                     <div class="panel-body">
                         content
@@ -60,23 +60,38 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script>
-        // $()     是方法的调用，用于获取DOM元素
-        // ready() 用于等待HTML文档加载完后调用回调函数
-        $(document).ready(function () {
-            // 动画
-            // $('#panel1').hide(300).show(1000);
-            // $('#panel1').slideUp(1000).delay(1000).slideDown(1000);
-            // $('#panel1').fadeOut(1000).fadeIn(1000);
-            // $('#panel1').fadeToggle(1000).fadeToggle(1000);
+        // document.readey()的简写
+        $(function () {
+            // 添加事件
 
-            // 样式
-            $('#panel1').css({
-                color: 'red',
-                fontWeight: 'bold',
+            // 单击事件
+            $('#btn1').on('click', function () {
+                // $('#panel1').toggle();
+                // $('#panel1').slideToggle();
+                $('#panel1').fadeToggle(500);
             });
-            $('#panel2').css({
-                opacity: '.5'
+
+            // 鼠标移动事件
+            $('#btn2').on('mouseenter', function () {
+                // $('#panel2').toggle();
+                // $('#panel2').slideToggle();
+                $('#panel2').fadeToggle(500);
             });
+
+            $('#btn3').on('click', function () {
+                // $('#panel3').toggle();
+                // $('#panel3').slideToggle();
+                $('#panel3').fadeToggle(500);
+            });
+            $('#btn4').on('click', function () {
+                // $('#panel4').toggle();
+                // $('#panel4').slideToggle();
+                $('#panel4').fadeToggle(500);
+            });
+
+            // 改变元素的内容
+            // $('#panel1').html("Hello <strong>Baby!</strong>");
+            $('#panel1 .panel-body').html('new content');
         });
     </script>
 </body>
