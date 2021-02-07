@@ -57,9 +57,27 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
-            setInterval(function () {
-                console.log(new Date);
-            }, 1000);
+            var width = 720;
+            var animeteSpeed = 1000;
+            var pause = 3000;
+            var currentSlide = 1;
+
+            var $silder = $('.slider');
+            var $slideContainer = $silder.find('.slides');
+            var $slides = $slideContainer.find('.slide');
+
+            var interval = setInterval(function () {
+                $slideContainer.animate(
+                    { 'margin-left': '-=' + width },
+                    animeteSpeed, function () {
+                        currentSlide++;
+                        if (currentSlide == $slides.length + 1) {
+                            currentSlide = 1;
+                            $slideContainer.css('margin-left', 0);
+                        }
+                    }
+                );
+            }, pause);
         });
     </script>
 </body>
