@@ -66,18 +66,33 @@
             var $slideContainer = $silder.find('.slides');
             var $slides = $slideContainer.find('.slide');
 
-            var interval = setInterval(function () {
-                $slideContainer.animate(
-                    { 'margin-left': '-=' + width },
-                    animeteSpeed, function () {
-                        currentSlide++;
-                        if (currentSlide == $slides.length + 1) {
-                            currentSlide = 1;
-                            $slideContainer.css('margin-left', 0);
+            var interval;
+
+            startSlider();
+
+            // 鼠标移入，轮播图停止动画
+            // 鼠标移出，轮播图开始动画
+            $silder.on('mouseenter', pauseSlider).on('mouseleave', startSlider);
+
+            function pauseSlider() {
+                clearInterval(interval);
+                interval = null;
+            }
+
+            function startSlider() {
+                interval = setInterval(function () {
+                    $slideContainer.animate(
+                        { 'margin-left': '-=' + width },
+                        animeteSpeed, function () {
+                            currentSlide++;
+                            if (currentSlide == $slides.length + 1) {
+                                currentSlide = 1;
+                                $slideContainer.css('margin-left', 0);
+                            }
                         }
-                    }
-                );
-            }, pause);
+                    );
+                }, pause);
+            }
         });
     </script>
 </body>
