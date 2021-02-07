@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+    <title>jQuery</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hello, world!</h1>
+            <button id="btn1" class="btn btn-primary">按钮1</button>
+            <button id="btn2" class="btn btn-success">按钮2</button>
+            <button id="btn3" class="btn btn-info">按钮3</button>
+            <button id="btn4" class="btn btn-warning">按钮4</button>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div id="panel1" class="panel panel-primary">
+                    <div class="panel-heading">#panel1</div>
+                    <div class="panel-body">
+                        content
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div id="panel2" class="panel panel-primary">
+                    <div class="panel-heading">#panel2</div>
+                    <div class="panel-body">
+                        content
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div id="panel3" class="panel panel-primary">
+                    <div class="panel-heading">#panel3</div>
+                    <div class="panel-body">
+                        content
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div id="panel4" class="panel panel-primary">
+                    <div class="panel-heading">#panel4</div>
+                    <div class="panel-body">
+                        content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        // $()     是方法的调用，用于获取DOM元素
+        // ready() 用于等待HTML文档加载完后调用回调函数
+        $(document).ready(function () {
+            // 动画
+            // $('#panel1').hide(300).show(1000);
+            // $('#panel1').slideUp(1000).delay(1000).slideDown(1000);
+            // $('#panel1').fadeOut(1000).fadeIn(1000);
+            // $('#panel1').fadeToggle(1000).fadeToggle(1000);
+
+            // 样式
+            $('#panel1').css({
+                color: 'red',
+                fontWeight: 'bold',
+            });
+            $('#panel2').css({
+                opacity: '.5'
+            });
+        });
+    </script>
+</body>
+
+</html>
