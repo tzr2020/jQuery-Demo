@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .tab-panels ul {
+        .tab-panel ul {
             margin: 0;
             padding: 0;
         }
 
-        .tab-panels ul li {
+        .tab-panel ul li {
             list-style-type: none;
             display: inline-block;
             background-color: palevioletred;
@@ -21,35 +21,35 @@
             cursor: pointer;
         }
 
-        .tab-panels ul li:hover {
+        .tab-panel ul li:hover {
             background-color: #666;
         }
 
-        .tab-panels ul li.active {
+        .tab-panel ul li.active {
             background-color: #666;
         }
 
-        .tab-panels .panel {
+        .tab-panel .panel {
             display: none;
             background-color: #c9c9c9;
             padding: 30px;
             border-radius: 0 0 10px 10px;
         }
 
-        .tab-panels .panel.active {
+        .tab-panel .panel.active {
             display: block;
         }
     </style>
-    <title>Document</title>
+    <title>demo-1</title>
 </head>
 
 <body>
-    <div class="tab-panels">
-        <ul class="tabs">
-            <li class="active">panel1</li>
-            <li>panel2</li>
-            <li>panel3</li>
-            <li>panel4</li>
+    <div class="tab-panel">
+        <ul class="tab">
+            <li data-panelID="panel1" class="active">panel1</li>
+            <li data-panelID="panel2">panel2</li>
+            <li data-panelID="panel3">panel3</li>
+            <li data-panelID="panel4">panel4</li>
         </ul>
 
         <div id="panel1" class="panel active">
@@ -81,7 +81,14 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
+            $('.tab-panel ul li').on('click', function () {
+                $('.tab-panel ul li.active').removeClass('active')
+                $(this).addClass('active')
 
+                var panelID = $(this).attr("data-panelID");
+                $('.tab-panel .panel.active').removeClass('active');
+                $('.tab-panel #' + panelID).addClass('active');
+            });
         });
     </script>
 </body>
