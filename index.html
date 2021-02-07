@@ -12,10 +12,10 @@
     <div class="container">
         <div class="jumbotron">
             <h1>Hello, world!</h1>
-            <button id="btn1" class="btn btn-primary">按钮1</button>
-            <button id="btn2" class="btn btn-success">按钮2</button>
-            <button id="btn3" class="btn btn-info">按钮3</button>
-            <button id="btn4" class="btn btn-warning">按钮4</button>
+            <button data-panelId="panel1" class="panel-button btn btn-primary">按钮1</button>
+            <button data-panelId="panel2" class="panel-button btn btn-success">按钮2</button>
+            <button data-panelId="panel3" class="panel-button btn btn-info">按钮3</button>
+            <button data-panelId="panel4" class="panel-button btn btn-warning">按钮4</button>
         </div>
 
         <div class="row">
@@ -60,38 +60,16 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script>
-        // document.readey()的简写
         $(function () {
-            // 添加事件
+            // DRY
 
-            // 单击事件
-            $('#btn1').on('click', function () {
-                // $('#panel1').toggle();
-                // $('#panel1').slideToggle();
-                $('#panel1').fadeToggle(500);
+            // 为每个button添加单击事件
+            $('.panel-button').on('click', function () {
+                // 动态获取被单击的button的自定义属性值
+                var panelId = $(this).attr('data-panelId');
+                // 拼接元素选择器，进行操作
+                $('#' + panelId).toggle();
             });
-
-            // 鼠标移动事件
-            $('#btn2').on('mouseenter', function () {
-                // $('#panel2').toggle();
-                // $('#panel2').slideToggle();
-                $('#panel2').fadeToggle(500);
-            });
-
-            $('#btn3').on('click', function () {
-                // $('#panel3').toggle();
-                // $('#panel3').slideToggle();
-                $('#panel3').fadeToggle(500);
-            });
-            $('#btn4').on('click', function () {
-                // $('#panel4').toggle();
-                // $('#panel4').slideToggle();
-                $('#panel4').fadeToggle(500);
-            });
-
-            // 改变元素的内容
-            // $('#panel1').html("Hello <strong>Baby!</strong>");
-            $('#panel1 .panel-body').html('new content');
         });
     </script>
 </body>
